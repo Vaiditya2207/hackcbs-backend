@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(cors());
 
 // Use routes
+app.get('/', (req, res) => {
+  res.send('Hello World');
+})
 app.use('/auth', authRoutes);
 app.use('/api', chatRoutes);
 app.use('/api/emergency-contacts', emergencyContactRoutes); // Added line

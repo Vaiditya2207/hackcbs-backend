@@ -33,7 +33,7 @@ const createUser = (user, callback) => {
   } = user;
 
   pool.query(
-    'INSERT INTO users (id, phone_number, first_name, last_name, weight, height, email, password, device_tokens) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    'INSERT INTO users (id, phone_number, first_name, last_name, weight, height, email, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
     [
       id,
       phone_number,
@@ -42,8 +42,7 @@ const createUser = (user, callback) => {
       weight,
       height,
       email,
-      password,
-      JSON.stringify(device_tokens || []),
+      password
     ],
     callback
   );
@@ -63,12 +62,11 @@ const updateUserDetails = (user, callback) => {
     last_name,
     weight,
     height,
-    email,
-    device_tokens, // Include device_tokens
+    email
   } = user;
 
   pool.query(
-    'UPDATE users SET phone_number = ?, first_name = ?, last_name = ?, weight = ?, height = ?, email = ?, device_tokens = ? WHERE id = ?',
+    'UPDATE users SET phone_number = ?, first_name = ?, last_name = ?, weight = ?, height = ?, email = ? WHERE id = ?',
     [
       phone_number,
       first_name,
@@ -76,7 +74,6 @@ const updateUserDetails = (user, callback) => {
       weight,
       height,
       email,
-      JSON.stringify(device_tokens || []),
       id,
     ],
     callback

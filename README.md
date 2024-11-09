@@ -2,6 +2,8 @@
 
 This API provides endpoints for user authentication, chat management with AI assistance, emergency contacts management, and finding nearest hospitals based on location.
 
+HOSTED_URL=https://hackcbs-backend-x9gw.onrender.com 
+
 ## Table of Contents
 
 - [API Documentation](#api-documentation)

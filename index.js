@@ -6,11 +6,13 @@ const chatRoutes = require('./routes/chat');
 const emergencyContactRoutes = require('./routes/emergencyContacts'); // Added line
 const { createTables } = require('./models/db'); // Added line
 const hospitalsRoutes = require('./routes/hospitals'); // Added line
+const cors = require('cors');
 
 // Initialize database tables
 createTables(); // Added line
 
 app.use(express.json());
+app.use(cors());
 
 // Use routes
 app.use('/auth', authRoutes);

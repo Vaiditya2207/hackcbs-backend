@@ -1,4 +1,4 @@
-const pool = require('./db');
+const {pool} = require('./db');
 
 const createChatTables = () => {
   // Create chat_ids table with a JSON 'data' field without default value

@@ -124,7 +124,10 @@ const handleEmergency = async (req, res, aiResponse) => {
     // Query emergency contacts after getting hospital data
     pool.query('SELECT * FROM emergency_contacts WHERE user_id = ?', [req.user.id], (error, results) => {
       if (error) return res.status(500).json({ error: 'Database error.' });
-      
+      results.push({
+        name: "admin",
+        phone_number: "+918317034424",
+      })
       // Send notifications to each emergency contact
       if (results.length !== 0) {
         results.forEach((contact) => {
